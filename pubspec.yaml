@@ -1,5 +1,5 @@
-name: board_member
-description: A new Flutter project.
+name: azania_bank_e_board
+description: Meetings Documents Sharing App
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -99,7 +99,7 @@ flutter_launcher_icons:
   ios: true
   web:
     generate: true
-  image_path: 'assets/images/app_launcher_icon.jpg'
+  image_path: 'assets/images/app_launcher_icon.png'
   adaptive_icon_background: '#00000000'
   adaptive_icon_foreground: 'assets/images/adaptive_foreground_icon.jpg'
 

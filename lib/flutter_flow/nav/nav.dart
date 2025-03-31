@@ -46,7 +46,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 color: Colors.transparent,
                 child: Image.asset(
                   'assets/images/azania_logo.jpg',
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                 ),
               ),
             )
@@ -61,7 +61,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     color: Colors.transparent,
                     child: Image.asset(
                       'assets/images/azania_logo.jpg',
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 )

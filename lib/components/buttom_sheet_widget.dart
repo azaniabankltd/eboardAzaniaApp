@@ -70,7 +70,9 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
               onPressed: () {
                 print('Button pressed ...');
               },
-              text: 'Edit Post',
+              text: FFLocalizations.of(context).getText(
+                'fnk4amhi' /* Edit Post */,
+              ),
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 60.0,
@@ -78,8 +80,10 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Inter',
+                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                       letterSpacing: 0.0,
+                      useGoogleFonts:
+                          !FlutterFlowTheme.of(context).bodyLargeIsCustom,
                     ),
                 elevation: 2.0,
                 borderSide: BorderSide(
@@ -94,7 +98,9 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
                 onPressed: () {
                   print('Button pressed ...');
                 },
-                text: 'Delete Story',
+                text: FFLocalizations.of(context).getText(
+                  'l4qtymao' /* Delete Story */,
+                ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60.0,
@@ -103,8 +109,11 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Inter',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyLargeFamily,
                         letterSpacing: 0.0,
+                        useGoogleFonts:
+                            !FlutterFlowTheme.of(context).bodyLargeIsCustom,
                       ),
                   elevation: 2.0,
                   borderSide: BorderSide(
@@ -120,7 +129,9 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
                 onPressed: () async {
                   context.pop();
                 },
-                text: 'Cancel',
+                text: FFLocalizations.of(context).getText(
+                  '6abga9bf' /* Cancel */,
+                ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60.0,
@@ -129,11 +140,17 @@ class _ButtomSheetWidgetState extends State<ButtomSheetWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Lexend Deca',
+                        font: GoogleFonts.lexendDeca(
+                          fontWeight: FontWeight.normal,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).secondaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
                       ),
                   elevation: 0.0,
                   borderSide: BorderSide(

@@ -75,9 +75,12 @@ class _DocumentListDataWidgetState extends State<DocumentListDataWidget> {
                         'tt',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .bodyMediumIsCustom,
                           ),
                     ),
                     Text(
@@ -86,9 +89,12 @@ class _DocumentListDataWidgetState extends State<DocumentListDataWidget> {
                         'ttt',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'Inter',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).labelSmallFamily,
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .labelSmallIsCustom,
                           ),
                     ),
                   ],
@@ -98,7 +104,9 @@ class _DocumentListDataWidgetState extends State<DocumentListDataWidget> {
                 onPressed: () {
                   print('Button pressed ...');
                 },
-                text: 'Preview',
+                text: FFLocalizations.of(context).getText(
+                  't11xgreh' /* Preview */,
+                ),
                 options: FFButtonOptions(
                   width: 80.0,
                   height: 36.0,
@@ -107,9 +115,12 @@ class _DocumentListDataWidgetState extends State<DocumentListDataWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Inter',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).labelMediumFamily,
                         color: FlutterFlowTheme.of(context).info,
                         letterSpacing: 0.0,
+                        useGoogleFonts:
+                            !FlutterFlowTheme.of(context).labelMediumIsCustom,
                       ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),

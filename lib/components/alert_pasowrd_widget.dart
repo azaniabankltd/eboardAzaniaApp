@@ -81,12 +81,17 @@ class _AlertPasowrdWidgetState extends State<AlertPasowrdWidget> {
                         size: 24.0,
                       ),
                       Text(
-                        'Invalid Credentials',
+                        FFLocalizations.of(context).getText(
+                          'znjjzzom' /* Invalid Credentials */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Inter',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
                               color: FlutterFlowTheme.of(context).error,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyLargeIsCustom,
                             ),
                       ),
                     ].divide(SizedBox(width: 12.0)),
@@ -108,18 +113,24 @@ class _AlertPasowrdWidgetState extends State<AlertPasowrdWidget> {
                 ],
               ),
               Text(
-                'The username or password you entered is incorrect. Please check your credentials and try again.',
+                FFLocalizations.of(context).getText(
+                  'v24qwa0o' /* The username or password you e... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       color: FlutterFlowTheme.of(context).secondaryText,
                       letterSpacing: 0.0,
+                      useGoogleFonts:
+                          !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                     ),
               ),
               FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
                 },
-                text: 'Try Again',
+                text: FFLocalizations.of(context).getText(
+                  'qtg8mwgp' /* Try Again */,
+                ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 40.0,
@@ -128,9 +139,12 @@ class _AlertPasowrdWidgetState extends State<AlertPasowrdWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).error,
                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         color: FlutterFlowTheme.of(context).info,
                         letterSpacing: 0.0,
+                        useGoogleFonts:
+                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                       ),
                   elevation: 0.0,
                   borderSide: BorderSide(

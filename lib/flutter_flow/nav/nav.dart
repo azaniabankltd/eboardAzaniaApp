@@ -46,7 +46,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 color: Colors.transparent,
                 child: Image.asset(
                   'assets/images/azania_logo.jpg',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             )
@@ -61,7 +61,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     color: Colors.transparent,
                     child: Image.asset(
                       'assets/images/azania_logo.jpg',
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fitWidth,
                     ),
                   ),
                 )
@@ -83,18 +83,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DocumentListWidget(),
         ),
         FFRoute(
-          name: EventsupdatesPageWidget.routeName,
-          path: EventsupdatesPageWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'eventsupdatesPage')
-              : EventsupdatesPageWidget(),
+          name: EventsupdatesPageSampleWidget.routeName,
+          path: EventsupdatesPageSampleWidget.routePath,
+          builder: (context, params) => EventsupdatesPageSampleWidget(),
         ),
         FFRoute(
           name: MeetingUpdatesWidget.routeName,
           path: MeetingUpdatesWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'meetingUpdates')
-              : MeetingUpdatesWidget(),
+          builder: (context, params) => MeetingUpdatesWidget(
+            commettee: params.getParam(
+              'commettee',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: UserProfileWidget.routeName,
@@ -104,11 +105,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : UserProfileWidget(),
         ),
         FFRoute(
-          name: MeetingCalenderWidget.routeName,
-          path: MeetingCalenderWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'meetingCalender')
-              : MeetingCalenderWidget(),
+          name: MeetingCalenderbkpWidget.routeName,
+          path: MeetingCalenderbkpWidget.routePath,
+          builder: (context, params) => MeetingCalenderbkpWidget(),
         ),
         FFRoute(
           name: EventsupdatesPageCopyWidget.routeName,
@@ -133,12 +132,61 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'pdf',
               ParamType.String,
             ),
+            document: params.getParam(
+              'document',
+              ParamType.int,
+            ),
+            documen: params.getParam(
+              'documen',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
           name: EventsupdatesPageCopy2OrgWidget.routeName,
           path: EventsupdatesPageCopy2OrgWidget.routePath,
           builder: (context, params) => EventsupdatesPageCopy2OrgWidget(),
+        ),
+        FFRoute(
+          name: BoardMemberProfileWidget.routeName,
+          path: BoardMemberProfileWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'BoardMemberProfile')
+              : BoardMemberProfileWidget(),
+        ),
+        FFRoute(
+          name: MeetingCalenderWidget.routeName,
+          path: MeetingCalenderWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'meetingCalender')
+              : MeetingCalenderWidget(),
+        ),
+        FFRoute(
+          name: PdfDocumentPreviewWidget.routeName,
+          path: PdfDocumentPreviewWidget.routePath,
+          builder: (context, params) => PdfDocumentPreviewWidget(),
+        ),
+        FFRoute(
+          name: MeetingUpdatesCopy2bkpWidget.routeName,
+          path: MeetingUpdatesCopy2bkpWidget.routePath,
+          builder: (context, params) => MeetingUpdatesCopy2bkpWidget(
+            commettee: params.getParam(
+              'commettee',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EventsupdatesPageWidget.routeName,
+          path: EventsupdatesPageWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'eventsupdatesPage')
+              : EventsupdatesPageWidget(),
+        ),
+        FFRoute(
+          name: MeetingCalenderCopyWidget.routeName,
+          path: MeetingCalenderCopyWidget.routePath,
+          builder: (context, params) => MeetingCalenderCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

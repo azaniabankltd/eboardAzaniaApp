@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:signature/signature.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -50,12 +51,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            FFLocalizations.of(context).getText(
+              'muropko6' /* Page Title */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Inter Tight',
+                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  useGoogleFonts:
+                      !FlutterFlowTheme.of(context).headlineMediumIsCustom,
                 ),
           ),
           actions: [],
@@ -66,7 +71,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              ClipRect(
+                child: Signature(
+                  controller: _model.signatureController ??=
+                      SignatureController(
+                    penStrokeWidth: 2.0,
+                    penColor: FlutterFlowTheme.of(context).primaryText,
+                    exportBackgroundColor: Colors.white,
+                  ),
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                  height: 1108.69,
+                ),
+              ),
+            ],
           ),
         ),
       ),

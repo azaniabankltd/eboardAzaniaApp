@@ -10,6 +10,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'eventsupdates_page_copy_model.dart';
 export 'eventsupdates_page_copy_model.dart';
 
@@ -54,19 +55,21 @@ class _EventsupdatesPageCopyWidgetState
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
-            return AlertDialog(
-              title: Text(GetAllEventsPostedCall.responseCodeApi(
-                (_model.eventsResults?.jsonBody ?? ''),
-              )!),
-              content: Text(GetAllEventsPostedCall.messageApi(
-                (_model.eventsResults?.jsonBody ?? ''),
-              )!),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
+            return WebViewAware(
+              child: AlertDialog(
+                title: Text(GetAllEventsPostedCall.responseCodeApi(
+                  (_model.eventsResults?.jsonBody ?? ''),
+                )!),
+                content: Text(GetAllEventsPostedCall.messageApi(
+                  (_model.eventsResults?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
             );
           },
         );
@@ -98,11 +101,15 @@ class _EventsupdatesPageCopyWidgetState
           backgroundColor: Color(0xFF2596BE),
           automaticallyImplyLeading: false,
           title: Text(
-            'Event Updates',
+            FFLocalizations.of(context).getText(
+              'r9oeolie' /* Event Updates */,
+            ),
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Inter Tight',
+                  fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
+                  useGoogleFonts:
+                      !FlutterFlowTheme.of(context).titleLargeIsCustom,
                 ),
           ),
           actions: [
@@ -172,24 +179,42 @@ class _EventsupdatesPageCopyWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
                                                         ),
                                               ),
                                               Text(
-                                                'Dodoma, Tanzania',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '7t6jzujc' /* Dodoma, Tanzania */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallIsCustom,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -319,15 +344,21 @@ class _EventsupdatesPageCopyWidgetState
                                                 postedEventsItem,
                                                 r'''$.reg_by''',
                                               ).toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
                                             ),
                                             TextSpan(
                                               text: getJsonField(
@@ -338,16 +369,29 @@ class _EventsupdatesPageCopyWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
                                                       ),
                                             )
                                           ],
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
@@ -362,11 +406,17 @@ class _EventsupdatesPageCopyWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .labelSmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmallIsCustom,
                                               ),
                                         ),
                                       ),
@@ -392,13 +442,21 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 6.0),
                                         child: Text(
-                                          '3,872 likes',
+                                          FFLocalizations.of(context).getText(
+                                            '96ohtzp2' /* 3,872 likes */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
@@ -408,34 +466,58 @@ class _EventsupdatesPageCopyWidgetState
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: 'dj_nightowl ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '5q7stch5' /* dj_nightowl  */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
                                             ),
                                             TextSpan(
-                                              text:
-                                                  'Getting ready to drop the beat at tonight\'s afterparty! Come find me at the VIP lounge from midnight. Limited spots available! #AfterpartyVibes #DJLife',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'vpjk9tpw' /* Getting ready to drop the beat... */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
                                                       ),
                                             )
                                           ],
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
@@ -443,15 +525,23 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          'View all 143 comments',
+                                          FFLocalizations.of(context).getText(
+                                            '32rwt117' /* View all 143 comments */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmallIsCustom,
                                               ),
                                         ),
                                       ),
@@ -459,15 +549,23 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          '45 MINUTES AGO',
+                                          FFLocalizations.of(context).getText(
+                                            'wp4d5svt' /* 45 MINUTES AGO */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelSmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmallIsCustom,
                                               ),
                                         ),
                                       ),
@@ -517,29 +615,50 @@ class _EventsupdatesPageCopyWidgetState
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'gourmet_bites',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'b046xhfy' /* gourmet_bites */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
                                                         ),
                                               ),
                                               Text(
-                                                'Food Court - Zone B',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'kku7o2o3' /* Food Court - Zone B */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .secondaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmallIsCustom,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -650,13 +769,21 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 6.0),
                                         child: Text(
-                                          '956 likes',
+                                          FFLocalizations.of(context).getText(
+                                            'mauht3wj' /* 956 likes */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
@@ -666,34 +793,58 @@ class _EventsupdatesPageCopyWidgetState
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: 'gourmet_bites ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'ei4jeeu0' /* gourmet_bites  */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
                                             ),
                                             TextSpan(
-                                              text:
-                                                  'Fresh off the grill! Our special festival menu is a hit! Stop by Zone B before 8PM for our happy hour special - buy one get one free on all signature sliders! #FestivalFood #FoodieHeaven',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'llh1esgj' /* Fresh off the grill! Our speci... */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
                                                       ),
                                             )
                                           ],
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMediumIsCustom,
                                               ),
                                         ),
                                       ),
@@ -701,15 +852,23 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          'View all 52 comments',
+                                          FFLocalizations.of(context).getText(
+                                            '7oidiuvs' /* View all 52 comments */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmallIsCustom,
                                               ),
                                         ),
                                       ),
@@ -717,15 +876,23 @@ class _EventsupdatesPageCopyWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          '1 HOUR AGO',
+                                          FFLocalizations.of(context).getText(
+                                            '98gx36dy' /* 1 HOUR AGO */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelSmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmallIsCustom,
                                               ),
                                         ),
                                       ),

@@ -116,13 +116,11 @@ class GetAllEventsPostedCall {
 
 class GetAllMeeetingsCall {
   static Future<ApiCallResponse> call({
-    String? email = '',
-    String? password = '',
+    String? commettee = '',
   }) async {
     final ffApiRequestBody = '''
 {
-  "email": "${email}",
-  "password": "${password}"
+  "commettee": "${commettee}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getAllMeeetings',
@@ -156,6 +154,145 @@ class GetAllMeeetingsCall {
   static List? meetingLists(dynamic response) => getJsonField(
         response,
         r'''$.CommitteeMeetings''',
+        true,
+      ) as List?;
+}
+
+class GetAllMeeetingSchedulesCall {
+  static Future<ApiCallResponse> call({
+    String? year = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "year": "${year}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getAllMeeeting Schedules',
+      apiUrl:
+          'https://boardmember.azaniabank.co.tz/api/v1/getMeeting/schedules',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? responseCodeApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.responseCode''',
+      ));
+  static String? messageApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? meetingSchedule(dynamic response) => getJsonField(
+        response,
+        r'''$.Details''',
+        true,
+      ) as List?;
+}
+
+class AddCommentCall {
+  static Future<ApiCallResponse> call({
+    int? documentId,
+    int? userId,
+    String? comentsFor = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "document_id": ${documentId},
+  "user_id": ${userId},
+  "coments_for": "${comentsFor}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'addComment',
+      apiUrl: 'https://boardmember.azaniabank.co.tz/api/v1/addDocument/comment',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? responseCodeApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.responseCode''',
+      ));
+  static String? messageApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? commentsList(dynamic response) => getJsonField(
+        response,
+        r'''$.Details''',
+        true,
+      ) as List?;
+}
+
+class GetCommentCall {
+  static Future<ApiCallResponse> call({
+    int? documentId,
+    int? userId,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "document_id": ${documentId},
+  "user_id": ${userId}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getComment',
+      apiUrl: 'https://boardmember.azaniabank.co.tz/api/v1/getDocument/comment',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? responseCodeApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.responseCode''',
+      ));
+  static String? messageApi(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? commentsList(dynamic response) => getJsonField(
+        response,
+        r'''$.Details''',
         true,
       ) as List?;
 }

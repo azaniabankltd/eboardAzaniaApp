@@ -92,9 +92,12 @@ class _ButtonSheetForLoginWidgetState extends State<ButtonSheetForLoginWidget> {
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Inter Tight',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineSmallFamily,
                                 color: FlutterFlowTheme.of(context).error,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .headlineSmallIsCustom,
                               ),
                     ),
                     FlutterFlowIconButton(
@@ -140,8 +143,11 @@ class _ButtonSheetForLoginWidgetState extends State<ButtonSheetForLoginWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .bodyMediumIsCustom,
                                 ),
                           ),
                         ),
@@ -151,7 +157,9 @@ class _ButtonSheetForLoginWidgetState extends State<ButtonSheetForLoginWidget> {
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'Try Again',
+                      text: FFLocalizations.of(context).getText(
+                        'yvuhvgn2' /* Try Again */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 48.0,
@@ -159,12 +167,16 @@ class _ButtonSheetForLoginWidgetState extends State<ButtonSheetForLoginWidget> {
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Inter Tight',
-                                  color: FlutterFlowTheme.of(context).info,
-                                  letterSpacing: 0.0,
-                                ),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .titleSmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              color: FlutterFlowTheme.of(context).info,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleSmallIsCustom,
+                            ),
                         elevation: 0.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,

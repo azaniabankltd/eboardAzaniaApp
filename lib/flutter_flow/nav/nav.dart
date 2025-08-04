@@ -45,8 +45,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context) => Container(
                 color: Colors.transparent,
                 child: Image.asset(
-                  'assets/images/azania_logo.jpg',
-                  fit: BoxFit.fitWidth,
+                  'assets/images/VsoNoXzVf8Oa_1242_2688.png',
+                  fit: BoxFit.cover,
                 ),
               ),
             )
@@ -60,8 +60,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   builder: (context) => Container(
                     color: Colors.transparent,
                     child: Image.asset(
-                      'assets/images/azania_logo.jpg',
-                      fit: BoxFit.fitWidth,
+                      'assets/images/VsoNoXzVf8Oa_1242_2688.png',
+                      fit: BoxFit.cover,
                     ),
                   ),
                 )

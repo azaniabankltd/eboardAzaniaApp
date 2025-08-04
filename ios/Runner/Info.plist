@@ -22,6 +22,9 @@
 		<string>sw</string>
 	</array>
 
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to your photo library to upload images.</string>
+
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
